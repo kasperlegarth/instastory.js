@@ -36,16 +36,19 @@
         const generateHtml = function(postsObject) {
             let html = "";
 
-            for(var i = 0; i < settings.limit; 1++) {
-                let post = postsObject[i].node;
-                
-                tempHtml += "<img src='" + post.thumbnail_resources[getImageSize(settings.imageSize)].src + "' alt='" + post.accessibility_caption + "'>"
-                
-                if(settings.link) {
-                    tempHtml = "<a href='https://www.instagra.com/p/"+ post.shortcode +"'>" + tempHtml + "</a>";
-                }
+            for(var i = 0; i < settings.limit; i++) {
 
-                html += tempHtml;
+                if(postsObject[i] !== undefined) {
+                    let post = postsObject[i].node;
+                
+                    let tempHtml = "<img src='" + post.thumbnail_resources[getImageSize(settings.imageSize)].src + "' alt='" + post.accessibility_caption + "'>"
+                    
+                    if(settings.link) {
+                        tempHtml = "<a href='https://www.instagram.com/p/"+ post.shortcode +"'>" + tempHtml + "</a>";
+                    }
+
+                    html += tempHtml;
+                }   
             }
 
             return html;
@@ -54,7 +57,7 @@
         $.ajax({
             url: "https://www.instagram.com/explore/tags/" + settings.hashtag + "/?__a=1",
             success: function(data) {
-                let posts = data.graohql.hashtag.edge_hashtag_to_media.edges;
+                let posts = data.graphql.hashtag.edge_hashtag_to_media.edges;
 
                 $container.html(generateHtml(posts));
             }

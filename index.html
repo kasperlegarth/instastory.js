@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>hashtaghistory.js - The simple instagram feed</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Titillium+Web:700" rel="stylesheet">
+    <link rel="stylesheet" href="demo/demo-style.min.css">
+</head>
+<body>
+    <header class="container">
+        <h1>hashtaghistory.js</h1>
+        <div class="sub">The simple instagram feed</div>
+        <div class="buttons">
+            <a href="https://github.com/kasperlegarth/hashtagstory.js"><i class="fab fa-github"></i> View on Github</a>
+            <a href="https://github.com/kasperlegarth/hashtagstory.js/archive/v1.0.zip"><i class="fas fa-cloud-download-alt"></i> Download zip (Demo included)</a>
+        </div>
+    </header>
+    <main class="container">
+        <section class="introduction">
+            <div class="text">
+                <h2>Introdoctuon</h2>
+                <p>hashtaghistory.js is a jQuery plugin to make it easy for you to make an instagram feed from a hashtag. It uses a standard Ajax call to a standard instagram url witch provide the data in JSON format. That means no need for app token client ids.</p>
+                <p>The only dependency to make it work is jQuery.</p>
+                <p>
+                    <strong>Getting startet</strong><br />
+                    It is really simple to use the plugin all you need to to is include jQuery and the hashtaghistory.js file where you include your other scrips in the project.
+                </p>
+                <code class="highlight-me multiline"><script src="jquery.min.js"></script>
+<script src="path/to/script/hashtaghistory.js"></script>
+                </code>
+                <p>Then you just need to call the plugin on a DOM element that you want to be a container for the images. <code class="highlight-me">$("#demo1").hashtaghistory("coding");</code> There are only one required parmeter, and that is the hashtag you want to show the feed from.</p>
+                <p>This will give you the following output:</p>
+                <div id="demo1"></div>
+                <small class="note"><strong>Note!</strong> The styling is made for this demo only, it is not included in the plugin.</small>
+            </div>
+        </section>
+    </main>
+    <div class="playground container">
+        <div class="controls text">
+            <h2>Try it yourself</h2>
+            <p>See the plugin in action</p>
+            <hr>
+            <h5>What hastag do you want to get the freed from?</h5>
+            <input type="text" id="hashtag-input" placeholder="E.g: summer">
+            <h5>How many items do you want?</h5>
+            <input type="text" id="limit-input" placeholder="E.g: 9">
+            <button id="new-feed">Generate feed</button>
+        </div>
+        <div id="playground-result" class="result"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="hashtaghistory.js"></script>
+    <script src="demo/demo.js"></script>
+</body>
+</html>
