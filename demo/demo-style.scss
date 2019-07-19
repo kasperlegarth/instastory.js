@@ -115,36 +115,93 @@ button {
 }
 
 .playground {
-    display: flex;
     margin-bottom: 60px;
     padding: 30px 0;
 
     .controls {
-        flex-shrink: 0;
-        margin: 0 30px 0 0;
+        margin: 0 0 30px;
         padding: 30px;
         background-color: #fff;
-        width: 35%;
         border-radius: 8px;
     }
 
     .result {
         display: flex;
-        margin-top: -10px;
         flex-wrap: wrap;
         justify-content: space-between;
         align-content: flex-start;
 
-        a {
+        .post {
+            position: relative;
             display: block;
-            margin: 10px 0;
-            width: calc(33.3333% - 10px);
-            
+            margin: 0 0 2%;
+            width: 32%;
+            border-radius: 4px;
+            overflow: hidden;
+
             img {
-                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
                 width: 100%;
-                height: auto;
                 border-radius: 4px;
+                transform: translate(0, -50%);
+            }
+
+            .meta {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                padding: 15px;
+                width: 100%;
+                height: 60px;
+                color: #fff;
+                font-size: 13px;
+                text-decoration: none;
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 60%,rgba(0,0,0,0.65) 100%);
+                transition: all .5s ease-in-out;
+                overflow: hidden;
+
+                p {
+                    margin: 0 0 20px;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .stats {
+                    position: absolute;
+                    left: 15px;
+                    right: 15px;
+                    bottom: 10px;
+                    text-align: center;
+
+                    i {
+                        margin: 0 10px 0 0;
+                    }
+
+                    .likes {
+                        margin: 0 30px 0 0;
+                    }
+                }
+            }
+
+            &::after {
+                display: block;
+                padding-top: 100%;
+                content: '';
+            }
+
+            &:hover {
+                .meta {
+                    height: 100%;
+                    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.65) 60%,rgba(0,0,0,0.65) 100%);
+
+                    p {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
             }
         }
     }

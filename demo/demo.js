@@ -31,10 +31,24 @@ $(document).ready(function() {
         imageSize: 240,
         limit: 9,
         link: true,
-        template: '<div class="test"><a href="{{link}}"><img src="{{image}}" alt="{{accessibility_caption}}" title="{{caption}}"></a><small>Likes: {{likes}} - Comments: {{comments}}</small></div>'
+        template: '<div class="post"><a href="{{link}}"><img src="{{image}}" alt="{{accessibility_caption}}"><span class="meta"><p>{{caption}}</p><span class="stats"><span class="likes"><i class="fas fa-heart"></i>{{likes}}</span><span class="comments"><i class="fas fa-comment"></i>{{comments}}</span></span></a></div>'
     };
     
     $('#playground-result').instastory(playgroundOptions);
+
+    setTimeout(function() {
+        $('#playground-result .post').each(function() {
+            let currentCaption = $(this).find('.meta p').text();
+            let newCaption = currentCaption;
+    
+            if(currentCaption.length > 390) {
+                newCaption = currentCaption.substring(0, 387) + '...';
+            }
+    
+            $(this).find('.meta p').text(newCaption);
+        });
+    }, 2000);
+    
 
     $('#new-feed').click(function() {
         let newSource = $('#hashtag-input').val();
@@ -49,5 +63,18 @@ $(document).ready(function() {
         }
 
         $('#playground-result').instastory(playgroundOptions);
+
+        setTimeout(function() {
+            $('#playground-result .post').each(function() {
+                let currentCaption = $(this).find('.meta p').text();
+                let newCaption = currentCaption;
+        
+                if(currentCaption.length > 390) {
+                    newCaption = currentCaption.substring(0, 387) + '...';
+                }
+        
+                $(this).find('.meta p').text(newCaption);
+            });
+        }, 2000);
     });
 });
