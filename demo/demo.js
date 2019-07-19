@@ -24,7 +24,7 @@ $(document).ready(function() {
         $(this).html(highlight($(this).html()));
     });
 
-    $('#demo1').hashtaghistory('coding');
+    $('#demo1').hashtaghistory('');
     
     let playgroundOptions = {
         hashtag: 'summer',
