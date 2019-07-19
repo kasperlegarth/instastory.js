@@ -75,6 +75,7 @@ options: {
 ```
 
 Here is a full list of tags to be used in the template:
+
 | Tag | Description |
 | --- | ----------- |
 | {{accessibility_caption}} | Returns the accessibility caption of the image. Great for alt tags, but be aware this it is not always possible for instagram to figure this out and then it returns: `"No photo description available."` |
