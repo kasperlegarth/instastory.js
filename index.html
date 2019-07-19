@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>hashtaghistory.js - The simple instagram feed</title>
+    <title>instastory.js - The simple instagram feed</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,27 +12,27 @@
 </head>
 <body>
     <header class="container">
-        <h1>hashtaghistory.js</h1>
+        <h1>instastory.js</h1>
         <div class="sub">The simple instagram feed</div>
         <div class="buttons">
-            <a href="https://github.com/kasperlegarth/hashtagstory.js"><i class="fab fa-github"></i> View on Github</a>
-            <a href="https://github.com/kasperlegarth/hashtagstory.js/archive/v1.0.1.2.zip"><i class="fas fa-cloud-download-alt"></i> Download zip (Demo included)</a>
+            <a href="https://github.com/kasperlegarth/instastory.js"><i class="fab fa-github"></i> View on Github</a>
+            <a href="https://github.com/kasperlegarth/instastory.js/archive/master.zip"><i class="fas fa-cloud-download-alt"></i> Download zip</a>
         </div>
     </header>
     <main class="container">
         <section class="introduction">
             <div class="text">
                 <h2>Introdoctuon</h2>
-                <p>hashtaghistory.js is a jQuery plugin to make it easy for you to make an instagram feed from a hashtag. It uses a standard Ajax call to a standard instagram url witch provide the data in JSON format. That means no need for app token client ids.</p>
+                <p>instastory.js is a jQuery plugin to make it easy for you to make an instagram feed from a hashtag or a user (that is not private). It uses a standard Ajax call to a standard instagram url witch provide the data in JSON format. That means no need for app token client ids.</p>
                 <p>The only dependency to make it work is jQuery.</p>
                 <p>
                     <strong>Getting startet</strong><br />
                     It is really simple to use the plugin all you need to to is include jQuery and the hashtaghistory.js file where you include your other scrips in the project.
                 </p>
-                <code class="highlight-me multiline"><script src="jquery.min.js"></script>
-<script src="path/to/script/hashtaghistory.js"></script>
+                <code class="highlight-me multiline">&lt;script src="jquery.min.js">&lt;/script>
+&lt;script src="path/to/script/instastory.js">&lt;/script>
                 </code>
-                <p>Then you just need to call the plugin on a DOM element that you want to be a container for the images. <code class="highlight-me">$("#demo1").hashtaghistory("coding");</code> There are only one required parmeter, and that is the hashtag you want to show the feed from.</p>
+                <p>Then you just need to call the plugin on a DOM element that you want to be a container for the images. <code class="highlight-me">$("#demo1").instastory("coding");</code> There are only one required parmeter, and that is the hashtag you want to show the feed from.</p>
                 <p>This will give you the following output:</p>
                 <div id="demo1"></div>
                 <small class="note"><strong>Note!</strong> The styling is made for this demo only, it is not included in the plugin.</small>
@@ -44,8 +44,8 @@
             <h2>Try it yourself</h2>
             <p>See the plugin in action</p>
             <hr>
-            <h5>What hastag do you want to get the freed from?</h5>
-            <input type="text" id="hashtag-input" placeholder="E.g: summer">
+            <h5>What do you want to generate a feed from? - Use # or @ like you would on instagram.</h5>
+            <input type="text" id="hashtag-input" placeholder="E.g: @instagram or #summer">
             <h5>How many items do you want?</h5>
             <input type="text" id="limit-input" placeholder="E.g: 9">
             <button id="new-feed">Generate feed</button>
@@ -53,7 +53,7 @@
         <div id="playground-result" class="result"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="hashtaghistory.js"></script>
+    <script src="instastory.js"></script>
     <script src="demo/demo.js"></script>
 </body>
 </html>
