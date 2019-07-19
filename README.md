@@ -9,17 +9,17 @@ This is a jQuery plugin to make it easier for developers to implement instagram 
 * [License](#license)
 
 ## Getting startet
-It is really simple to use the plugin all you need to to is include jQuery and the hashtaghistory.js file where you include your other scrips in the project.
+It is really simple to use the plugin all you need to to is include jQuery and the instastory.js file where you include your other scrips in the project.
 
 ```html
 <script src="jquery.min.js"></script>
-<script src="path/to/script/hashtaghistory.js"></script>
+<script src="path/to/script/instastory.js"></script>
 ```
 
 Then the only thing left is to call the plugin on the DOM element that should be the container, call it with a hashtag that you want the history from.
 
 ```javascript
-$("#container").hashtaghistory("#coding");
+$("#container").instastory("#coding");
 ```
 
 As default the above line will give you the 6 most recent posts with the hashtag _"coding"_ and will output the following html into the container element:
@@ -38,7 +38,7 @@ If you are not the happy with the default options you can overwite some of the o
 
 **Directyly on plugin call.**
 ```javascript
-$("#container").hashtaghistory({
+$("#container").instastory({
     hashtag: "coding",
     limit: 9
 });
@@ -51,7 +51,7 @@ let options = {
     limit: 9
 };
 
-$("#container").hashtaghistory(options);
+$("#container").instastory(options);
 ```
 
 ### Default options
