@@ -1,6 +1,7 @@
 (function($) {
     $.fn.hashtaghistory = function(userSettings) {
         let $container = this;
+        let searchUrl = "";
         let settings = $.extend({
             get         : "",
             type        : "",
@@ -8,6 +9,7 @@
             limit       : 6,
             link        : true
         }, userSettings);
+        
 
         if(typeof userSettings == "string") {
             settings.get = userSettings;
@@ -57,6 +59,17 @@
         const generateHtml = function(postsObject) {
             let html = "";
 
+            console.log(postsObject);
+
+            switch (settings.type) {
+                case user:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+
             for(var i = 0; i < settings.limit; i++) {
 
                 if(postsObject[i] !== undefined) {
@@ -75,10 +88,14 @@
             return html;
         };
 
-        
+        if(settings.type == "user") {
+            searchUrl = "https://www.instagram.com/" + settings.get + "/?__a=1"
+        } else {
+            searchUrl = "https://www.instagram.com/explore/tags/" + settings.get + "/?__a=1";
+        }
 
         $.ajax({
-            url: "https://www.instagram.com/combine_dk/?__a=1",
+            url: searchUrl,
             success: function(data) {
                 let posts = data.graphql.hashtag.edge_hashtag_to_media.edges;
 
