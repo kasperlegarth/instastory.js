@@ -24,29 +24,29 @@ $(document).ready(function() {
         $(this).html(highlight($(this).html()));
     });
 
-    $('#demo1').hashtaghistory('coding');
+    $('#demo1').instastory('#coding');
     
     let playgroundOptions = {
-        hashtag: 'summer',
+        get: '@instagram',
         imageSize: 240,
         limit: 9,
         link: true
     };
     
-    $('#playground-result').hashtaghistory(playgroundOptions);
+    $('#playground-result').instastory(playgroundOptions);
 
     $('#new-feed').click(function() {
-        let newHashtag = $('#hashtag-input').val();
+        let newSource = $('#hashtag-input').val();
         let newLimit = $('#limit-input').val();
 
-        if(newHashtag !== '') {
-            playgroundOptions.hashtag = newHashtag;
+        if(newSource !== '') {
+            playgroundOptions.get = newSource;
         }
 
         if(newLimit !== '') {
             playgroundOptions.limit = newLimit;
         }
 
-        $('#playground-result').hashtaghistory(playgroundOptions);
+        $('#playground-result').instastory(playgroundOptions);
     });
 });
