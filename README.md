@@ -77,6 +77,12 @@ options: {
 Here is a full list of tags to be used in the template:
 | Tag | Description |
 | --- | ----------- |
+| {{accessibility_caption}} | Returns the accessibility caption of the image. Great for alt tags, but be aware this it is not always possible for instagram to figure this out and then it returns: `"No photo description available."` |
+| {{caption}} | Returns the caption that the user uploaded with the image. |
+| {{comments}} | Returns the comment count of the image. |
+| {{image}} | Returns the image url in the desired image size. |
+| {{likes}} | Returns the number of people that have liked the image. |
+| {{link}} | Returns the url for the post (not the same as the image url) |
 
 ## License
 This project is licensed under the MIT Liense - see the [LICENCE.md](LICENSE.md)
