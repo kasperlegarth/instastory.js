@@ -1,4 +1,4 @@
-# hashtagstory.js
+# instastory.js
 This is a jQuery plugin to make it easier for developers to implement instagram feeds on websites. There is no need for access tokens and stuff like that. Use good old Jquery.
 
 **Table of contents**
