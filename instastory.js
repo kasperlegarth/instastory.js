@@ -63,8 +63,10 @@
                     default:
                         return post.thumbnail_resources[0].src;
                 }
-            } else {
+            } else if(wantedImageSize == "raw") {
                 return post.display_url;
+            } else {
+                return post.thumbnail_resources[0].src;
             }
             
         };

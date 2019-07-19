@@ -41,8 +41,8 @@ $(document).ready(function() {
             let currentCaption = $(this).find('.meta p').text();
             let newCaption = currentCaption;
     
-            if(currentCaption.length > 390) {
-                newCaption = currentCaption.substring(0, 387) + '...';
+            if(currentCaption.length > 350) {
+                newCaption = currentCaption.substring(0, 347) + '...';
             }
     
             $(this).find('.meta p').text(newCaption);
