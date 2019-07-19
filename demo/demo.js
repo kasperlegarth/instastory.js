@@ -30,7 +30,8 @@ $(document).ready(function() {
         get: '@instagram',
         imageSize: 240,
         limit: 9,
-        link: true
+        link: true,
+        template: '<div class="test"><a href="{{link}}"><img src="{{image}}" alt="{{accessibility_caption}}" title="{{caption}}"></a><small>Likes: {{likes}} - Comments: {{comments}}</small></div>'
     };
     
     $('#playground-result').instastory(playgroundOptions);

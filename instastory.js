@@ -7,7 +7,8 @@
             type        : "",
             imageSize   : 150,
             limit       : 6,
-            link        : true
+            link        : true,
+            template    : ""
         }, userSettings);
         
         if(typeof userSettings == "string") {
@@ -68,6 +69,29 @@
             
         };
 
+        const buildTemplate = function(post) {
+            String.prototype.allReplace = function(obj) {
+                let retStr = this;
+                for (let x in obj) {
+                    retStr = retStr.replace(new RegExp(x, "g"), obj[x]);
+                }
+                return retStr;
+            };
+
+            let templateCodes = {
+                "{{accessibility_caption}}" : post.accessibility_caption,
+                "{{caption}}": post.edge_media_to_caption.edges[0].node.text,
+                "{{comments}}": post.edge_media_to_comment.count,
+                "{{image}}": getImageSize(post),
+                "{{likes}}": post.edge_liked_by.count,
+                "{{link}}": "https://www.instagram.com/p/"+ post.shortcode,
+            }
+
+            let template = settings.template.allReplace(templateCodes);
+
+            return template;
+        }
+
         const generateHtml = function(ajaxResult) {
             let html = "";
             let postsObject = {};
@@ -89,11 +113,16 @@
 
                 if(posts[i] !== undefined) {
                     let post = posts[i].node;
+                    let tempHtml = "";
 
-                    let tempHtml = "<img src='" + getImageSize(post) + "' alt='" + post.accessibility_caption + "'>"
+                    if(settings.template != "") {
+                        tempHtml = buildTemplate(post);
+                    } else {
+                        tempHtml = "<img src='" + getImageSize(post) + "' alt='" + post.accessibility_caption + "'>"
                     
-                    if(settings.link) {
-                        tempHtml = "<a href='https://www.instagram.com/p/"+ post.shortcode +"'>" + tempHtml + "</a>";
+                        if(settings.link) {
+                            tempHtml = "<a href='https://www.instagram.com/p/"+ post.shortcode +"'>" + tempHtml + "</a>";
+                        }
                     }
 
                     html += tempHtml;
@@ -110,6 +139,15 @@
             url: searchUrl,
             success: function(data) {
                 $container.html(generateHtml(data.graphql[settings.type]));
+            }
+        }).fail(function(data) {
+            switch(data.status) {
+                case 404:
+                    console.warn("The " + settings.type + " do not exsists, please try another one");
+                break;
+                default:
+                    console.warn('An unknow error happend');
+                break;
             }
         });
     }
