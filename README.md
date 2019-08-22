@@ -39,7 +39,7 @@ If you are not the happy with the default options you can overwite some of the o
 **Directyly on plugin call.**
 ```javascript
 $("#container").instastory({
-    hashtag: "coding",
+    get: "#coding",
     limit: 9
 });
 ```
@@ -47,7 +47,7 @@ $("#container").instastory({
 **By using an object.**
 ```javascript
 let options = {
-    hashtag: "coding",
+    get: "#coding",
     limit: 9
 };
 
