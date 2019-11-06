@@ -82,7 +82,7 @@
 
             let templateCodes = {
                 "{{accessibility_caption}}" : post.accessibility_caption,
-                "{{caption}}": post.edge_media_to_caption.edges[0].node.text,
+                "{{caption}}": ((post.edge_media_to_caption.edges.length > 0) ? post.edge_media_to_caption.edges[0].node.text : ""),
                 "{{comments}}": post.edge_media_to_comment.count,
                 "{{image}}": getImageSize(post),
                 "{{likes}}": post.edge_liked_by.count,
