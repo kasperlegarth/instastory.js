@@ -8,7 +8,8 @@
             imageSize   : 150,
             limit       : 6,
             link        : true,
-            template    : ""
+            template    : "",
+            after       : function(){}
         }, userSettings);
 
         if(!$container.length) {
@@ -150,6 +151,7 @@
             url: searchUrl,
             success: function(data) {
                 $container.html(generateHtml(data.graphql[settings.type]));
+                settings.after();
             }
         }).fail(function(data) {
             switch(data.status) {
