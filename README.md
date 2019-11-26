@@ -87,3 +87,7 @@ Here is a full list of tags to be used in the template:
 
 ## License
 This project is licensed under the MIT Liense - see the [LICENCE.md](LICENSE.md)
+
+## Special thanks
+It's dangerous to go alone. So here are a list of people whom have helped along the way:
+* @elemis
