@@ -59,6 +59,7 @@ Here is the full list of options and their default value.
 
 | Option | Type | Default | Description |
 | ------ | ---- | ------- | ----------- |
+| after | function | empty function | You can parse a function to be executed after the plugin generates the html. |
 | get | string | "" | Define wath hashtag or username to get the images from. Remember to include either "#" or "@" This is the only option that is required to make it work. If nothing is defined as the get parameter, the plugin will return false. |
 | imageSize | int\|string | 150 | Define what size you want the plugin to return the images in. Instagram provide images (thumbnails) in the following sizes: `150`, `240`, `320`, `480`, `640`. You can also get the raw image by defining `"raw"`as you image size. The raw image size have the original dimensions (not a sqaure) If the you specify a size that isn't reconized it will return 150. |
 | limit | int | 6 | Define how many images you want the plugin to return. The max limit for an user feed is: `12` and the max limit for a hashtag feed is: `70` if limit is higher than descriped it will return the max limit | 
