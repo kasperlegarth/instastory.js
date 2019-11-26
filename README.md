@@ -90,4 +90,4 @@ This project is licensed under the MIT Liense - see the [LICENCE.md](LICENSE.md)
 
 ## Special thanks
 It's dangerous to go alone. So here are a list of people whom have helped along the way:
-* @elemis
+* [@elemis](https://github.com/elemis)
