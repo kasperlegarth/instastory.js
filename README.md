@@ -37,7 +37,7 @@ For more information about limit, image sizes etc. see [options](#options).
 ## Options
 If you are not the happy with the default options you can overwite some of the options either when you call the plugin or make an object that you feed the call with.
 
-**Directyly on plugin call.**
+**Directly on plugin call.**
 ```javascript
 $("#container").instastory({
     get: "#coding",
