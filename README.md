@@ -2,12 +2,14 @@
 This is a jQuery plugin to make it easier for developers to implement instagram feeds on websites. There is no need for access tokens and stuff like that. Use good old jQuery.
 
 **Table of contents**
-* [Getting startet](#getting-startet)
-* [Options](#options)
-    * [Default options](#default-options)
-    * [Templating](#templating)
-* [License](#license)
-* [Special thanks](#special-thanks)
+- [instastory.js](#instastoryjs)
+  - [Getting startet](#getting-startet)
+  - [Options](#options)
+    - [Default options](#default-options)
+    - [Templating](#templating)
+  - [Data Mode](#data-mode)
+  - [License](#license)
+  - [Special thanks](#special-thanks)
 
 ## Getting startet
 It is really simple to use the plugin all you need to to is include jQuery and the instastory.js file where you include your other scrips in the project.
@@ -86,6 +88,15 @@ Here is a full list of tags to be used in the template:
 | {{image}} | Returns the image url in the desired image size. |
 | {{likes}} | Returns the number of people that have liked the image. |
 | {{link}} | Returns the url for the post (not the same as the image url) |
+
+## Data Mode
+This plugin only uses a fraction of all the information returned by the ajax call. You might want to do things differently than this plugin. Therefore if you call the plugin without a selector, you can get the raw data from the ajax call. Please note that this function may course the site to "hang" becouse the call is not async.
+
+Simply do like this:
+```javascript
+const rawData = $.instastory('@instagram');
+console.log(rawData);
+```
 
 ## License
 This project is licensed under the MIT Liense - see the [LICENCE.md](LICENSE.md)

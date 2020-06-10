@@ -77,4 +77,7 @@ $(document).ready(function() {
             });
         }, 2000);
     });
+
+    let rawData = $.instastory('@instagram');
+    console.log('Data Mode', rawData);
 });
