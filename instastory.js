@@ -1,7 +1,34 @@
 (function($) {
+    const constructUrlSettings = function(searchString) {
+        let type = '';
+        let keyword = '';
+        let url = '';
+
+        if(searchString.indexOf("@") > -1) {
+            type = "user";
+            keyword = searchString.substring(searchString.indexOf('@') + 1);
+        } else if(searchString.indexOf("#") > -1) {
+            type = "hashtag";
+            keyword = searchString.substring(searchString.indexOf('#') + 1);
+        } else {
+            type = "hashtag";
+            keyword = searchString;
+        }
+
+        if(type == "user") {
+            url = "https://www.instagram.com/" + keyword + "/?__a=1"
+        } else {
+            url = "https://www.instagram.com/explore/tags/" + keyword + "/?__a=1";
+        }
+
+        return {
+            url: url,
+            type: type
+        };
+    }
+
     $.fn.instastory = function(userSettings) {
         let $container = this;
-        let searchUrl = "";
         let settings = $.extend({
             get         : "",
             type        : "",
@@ -34,26 +61,8 @@
             return false;
         }
 
-        const determineType = function(searchString) {
-            if(searchString.indexOf("@") > -1) {
-                settings.type = "user";
-                settings.get = searchString.substring(searchString.indexOf('@') + 1);
-            } else if(searchString.indexOf("#") > -1) {
-                settings.type = "hashtag";
-                settings.get = searchString.substring(searchString.indexOf('#') + 1);
-            } else {
-                settings.type = "hashtag";
-                settings.get = searchString;
-            }
-        }
-
-        const determineUrl = function(searchType) {
-            if(searchType == "user") {
-                searchUrl = "https://www.instagram.com/" + settings.get + "/?__a=1"
-            } else {
-                searchUrl = "https://www.instagram.com/explore/tags/" + settings.get + "/?__a=1";
-            }
-        }
+        let urlSettings = constructUrlSettings(settings.get);
+        settings.type = urlSettings.type;
 
         const getImageSize = function(post) {
             const wantedImageSize = settings.imageSize;
@@ -144,15 +153,11 @@
             return html;
         };
 
-        determineType(settings.get);
-        determineUrl(settings.type);
-
         $.ajax({
-            url: searchUrl,
-            success: function(data) {
-                $container.html(generateHtml(data.graphql[settings.type]));
-                settings.after();
-            }
+            url: urlSettings.url,
+        }).done(function(data) {
+            $container.html(generateHtml(data.graphql[settings.type]));
+            settings.after();
         }).fail(function(data) {
             switch(data.status) {
                 case 404:
@@ -163,5 +168,28 @@
                 break;
             }
         });
+    }
+
+    $.instastory = function(keyword) {
+        let urlSettings = constructUrlSettings(keyword);
+        let result = '';
+
+        $.ajax({
+            url: urlSettings.url,
+            async: false
+        }).done(function(data) {
+            result = data.graphql[urlSettings.type];
+        }).fail(function(data) {
+            switch(data.status) {
+                case 404:
+                    console.warn("The " + urlSettings.type + " do not exsists, please try another one");
+                break;
+                default:
+                    console.warn('An unknow error happend');
+                break;
+            }
+        });
+
+        return result;
     }
 })(jQuery);
