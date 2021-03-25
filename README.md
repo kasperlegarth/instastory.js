@@ -11,7 +11,7 @@ This is a jQuery plugin to make it easier for developers to implement instagram 
   - [License](#license)
   - [Special thanks](#special-thanks)
 
-## Getting startet
+## Getting started
 It is really simple to use the plugin all you need to to is include jQuery and the instastory.js file where you include your other scrips in the project.
 
 ```html
