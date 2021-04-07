@@ -1,3 +1,6 @@
+# Deprecated
+As of Q1 2021, facebook made some changes to the instagram api that blocked the usage of this plugin.
+
 # instastory.js
 This is a jQuery plugin to make it easier for developers to implement instagram feeds on websites. There is no need for access tokens and stuff like that. Use good old jQuery.
 
